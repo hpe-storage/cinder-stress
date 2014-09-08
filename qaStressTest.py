@@ -1219,7 +1219,7 @@ def _finish_delete_volume(vol):
             OpenStackThread.log_message("Deleted volume %s" % (vol.id))
 
             # confirm that the deletion occurred
-            if args.confirm in True:
+            if args.confirm is True:
                 OpenStackThread.log_message("Confirming deletion of volume %s"
                                             % (vol.id))
                 w_time = mytime.time()
