@@ -1328,7 +1328,7 @@ OpenStackThread.log_message("Finished cleaning up snapshots")
 OpenStackThread.log_message("Clean up volumes...")
 volumes = cindercl.volumes.list(True)
 for vol in volumes:
-    if OpenStackThread.VOLUME_NAME in vol.name:
+    if vol.name and OpenStackThread.VOLUME_NAME in vol.name:
         if vol.status == "available" or vol.status == "error":
             _finish_delete_volume(vol)
         elif vol.status == "in-use":
